@@ -7,4 +7,4 @@ This [project](https://github.com/nilostolte/Projects-Presentations/blob/main/%C
 
 ## Automatic Vector Fonts Generator Project – Glyphs, their widths and kerning pairs
 
-This [project](https://github.com/nilostolte/Projects-Presentations/new/main#automatic-vector-fonts-generator-project--glyphs-their-widths-and-kerning-pairs) is about the development of a tool to transform **Truetype** and **Opentype** fonts to an embedded proprietary compact font format in Java.
+This [project](https://github.com/nilostolte/Projects-Presentations/blob/main/Automatic%20Vector%20Fonts%20Generator%20Project.md#automatic-vector-fonts-generator-project--glyphs-their-widths-and-kerning-pairs) is about the development of a tool to transform **Truetype** and **Opentype** fonts to an embedded proprietary compact font format in Java.
