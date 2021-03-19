@@ -5,7 +5,8 @@ Fonts in PostScript. This was used to display right justified text using the fun
 function with same name shown in the **PostScript Cookbook** (Blue Book) coded in PostScript. Postscript has been used as a prototype language to 
 develop a much more complex project ([**π Vector GUI for Java and Android**](https://github.com/nilostolte/Projects-Presentations/blob/main/%CF%80%20Vector%20GUI%20for%20Java%20and%20Android.md#%CF%80-vector-gui-for-java-and-android)) which this project is part of.
  
-The PostScript prototype has been used for different applications, but had quite a few inconveniences as briefly mentioned previously. First, 
+
+The PostScript prototype has been used for different applications, but had quite a few inconveniences. First, 
 the kerning had to be done by hand (the font kerning information is encrypted in the font and not available in PostScript). Second, this 
 prototype cannot be used in another context (in a Java program, for example), except for showing static vectorized texts.  A vectorized 
 text is a text represented by their graphical shapes, broadly called glyphs. A glyph is a series of commands to draw a character. Long 
@@ -19,7 +20,8 @@ The solution is to have fonts available to the program in order to show the glyp
 extremely complex file format that must be read in order to use its information. A program that reads fonts is called a parser, and a font parser 
 is also a complex and heavy piece of software. Thus, it is far more convenient to use a font parser to extract the essential information and to 
 generate a much more compact piece of code to make this information available to the program.
- 
+
+
 This is what has been accomplished in this project and what follows is a detailed description on how this has been accomplished. The essential 
 information needed to display texts correctly on the screen using fonts is: the glyphs, their widths and the kerning pairs.
 
@@ -44,7 +46,7 @@ information of the font.
 ## Error in Glyph Inspector
 
 The only caveat found was that the code in this site had a bug. It was discovered that the function that returns 
-the commands defining the glyphs were not being interpreted in the correct order when a set of points for bezier curves are asked. This had 
+the commands defining the glyphs were not being interpreted in the correct order when a set of points for cubic bezier curves are asked. This had 
 been debugged using JSON.stringify that showed the correct order.
 
 ![image](https://user-images.githubusercontent.com/80269251/111824666-e14bc300-88bc-11eb-9a9a-a6f099a83d40.png)
