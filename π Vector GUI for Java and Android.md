@@ -80,7 +80,7 @@ Since skilled programmers are very expensive, it is far better to let them take 
 
 # Automatic Vector Fonts Generator Project – Glyphs, their widths and kerning pairs
 
-Please check this [link to the project](https://github.com/nilostolte/Projects-Presentations/new/main#automatic-vector-fonts-generator-project--glyphs-their-widths-and-kerning-pairs).
+Please check this [link to the project](https://github.com/nilostolte/Projects-Presentations/blob/main/Automatic%20Vector%20Fonts%20Generator%20Project.md#automatic-vector-fonts-generator-project--glyphs-their-widths-and-kerning-pairs).
 
 The project started changing the distances between pairs of characters (**kerning**) of **Type 1 Fonts** in **PostScript** to display right 
 justified text in PostScript that has been used as a prototype language.
