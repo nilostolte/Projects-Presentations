@@ -17,11 +17,30 @@ the program to justify the text to the right.
 For each line, when a certain line size is attained, the line is shown right justified and the y coordinate of the next line 
 is incremented by a value passed as a parameter.
 
-The program is able to handle 8 simultaneous fonts for each string. Each string becomes a new paragraph as described above. Font
-switching is done by using characters /000 to /007 acting each one as an index to a different font. These characters can appear
-at the beginning of words to appear with the particular fonts indexed by them, and they are not counted as actual characters.
+The program is able to handle 256 simultaneous fonts for each string. Each string becomes a new paragraph as described above. Font
+switching is done by using character /000 followed by a character with the index of the font, that is, between /000 and /777 (255). 
+These characters can appear at any place in a word, and they are not counted as actual characters.
 Other non-printing characters can also be use as commands in this same manner.
 
-## Snapshot with a Single Font
+## Examples
+
+### With a Single Font
 ![image](https://user-images.githubusercontent.com/80269251/111925521-93cb8380-8a7f-11eb-94f8-d42d50366aa4.png)
 
+In this snapshot it was used: a MyriadPro-Regular.otf font, scaled to 20 points size, line widths limited to 380 points, a
+20 points y coordinate increment, and a 5 points minimum word separator.
+
+### With Two Fonts
+
+![image](https://user-images.githubusercontent.com/80269251/111985704-57ca0a00-8ae3-11eb-9e71-c319486bac6c.png)
+
+In this snapshot it was used: MyriadPro-Regular.otf and MyriadPro-Bold.otf fonts, scaled to 20 points size, line widths 
+limited to 380 points, a 20 points y coordinate increment, and a 4 points minimum word separator.
+
+### With Four Fonts
+
+![image](https://user-images.githubusercontent.com/80269251/112010236-8359ee00-8afd-11eb-817a-29a4984939ee.png)
+
+In this snapshot it was used: MyriadPro-Regular.otf, MyriadPro-Bold.otf MyriadPro-It.otf and MyriadPro-SemiboldIt.otffonts, 
+scaled to 20 points size, line widths limited to 380 points, a 20 points y coordinate increment, and a 4 points minimum word 
+separator.
