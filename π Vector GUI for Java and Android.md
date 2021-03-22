@@ -3,7 +3,9 @@
 
 ![image](https://user-images.githubusercontent.com/80269251/111788201-2e686e80-8896-11eb-95f8-6bd6449abfbf.png)
 
-Is a system for creating  Graphics User Interfaces (GUI) for Java applications on Windows, Linux or Android using vector primitives and vectorized fonts.
+Is a system for creating  Graphics User Interfaces (GUI) for Java applications on Windows, Linux or Android using vector primitives and vectorized fonts. Its goal is to help to create high quality and aesthetically attractive interfaces with the use of gradient effects and other vector graphics techniques (that previously could mostly be developed in programs such as Adobe Illustrator without the possibility of creating Java code) with high performance selection time, typically constant time for structured elements such as menus, grids, etc. Texts can use Truetype and Opentype fonts that are automatically transformed into Java through the a tool of the system (see project [𝗩𝗲𝗰𝘁𝗼𝗿 𝗙𝗼𝗻𝘁𝘀: 𝗜𝗻𝗳𝗼𝗿𝗺𝗮𝘁𝗶𝗼𝗻 𝗘𝘅𝘁𝗿𝗮𝗰𝘁𝗶𝗼𝗻 - 𝗚𝗹𝘆𝗽𝗵𝘀, 𝗧𝗵𝗲𝗶𝗿 𝗪𝗶𝗱𝘁𝗵𝘀 𝗮𝗻𝗱 𝗞𝗲𝗿𝗻𝗶𝗻𝗴 𝗣𝗮𝗶𝗿𝘀](https://github.com/nilostolte/Projects-Presentations/blob/main/Automatic%20Vector%20Fonts%20Generator%20Project.md#automatic-vector-fonts-generator-project--glyphs-their-widths-and-kerning-pairs)). Text can also be automatically formatted right justified by another tool of the system (see project [𝗕𝗿𝗲𝗮𝗸𝗜𝗻𝘁𝗼𝗟𝗶𝗻𝗲𝘀](https://github.com/nilostolte/Projects-Presentations/blob/main/BreakIntoLines.md#breakintolines)) allowing documentation to be shown as part of the interface or in heavily textual contents applications such as books or manuals. This makes it possible to design documents as interfaces to allow interactive books with no need of a browser, or any online content, ideal for embedded applications with real WYSIWYG contents.
+
+It started with a prototype in PostScript and it has slowly been improved by transforming the prototype into a real system of tools written in Java. Nowadays the whole system uses Java for about 70% of the tasks (counting with examples, etc.), 20% of PostScript (mainly for icons, menus, etc. that are converted to Java semi automatically) and about 10% of JavaScript.
 
 ## Basic definitions
 
@@ -12,6 +14,14 @@ Definition of what vector graphics is and why this representation is better.  Th
 ![image](https://user-images.githubusercontent.com/80269251/111790832-00385e00-8899-11eb-98bf-e307be744c40.png)
 
 <br>
+
+## Origins of the System
+
+![image](https://user-images.githubusercontent.com/80269251/111805001-02a1b480-88a7-11eb-9df1-e8f411126d42.png)
+
+This is the Maxcalc app that was once published in Google market. Some other apps were realized at that time such as a Sudoko game generator to play offline or to automatically solve a Sudoko grid offline. The creation of the popup menus and overall look of the design in MaxCalc (now called π calculator) is the original idea of the system. 
+
+By looking in more detail the design of interfaces using vector primitives I have realized that these primitives inherited their basic elements from their distant cousins, the vector graphics languages that I already knew and had already more than 30 years of experience. To link these two worlds together a proof should be shown that this would really work. The starting linking element was the Java and Android Java “path” primitive where the placement of several vector primitives together give origin to more complex graphics elements. With the hands on a graphics element in PostScript and a digit in a vector font, both transformed into Java paths and displayed into an Android application is sufficient proof that this is feasible.
 
 ## Prototype: Semi-automatic GUI generation system
 
@@ -66,26 +76,13 @@ We continue using this methodology without using Postscript. Since this system i
 
 On the right is a part of the program containing the **BreakIntoLines** function which justifies the text as indicated by the GhostView window on the left. This function was inspired by the function of the same name given in **"PostScript Cookbook"** (also known as the "bluebook") which makes the distribution of a text in multiple lines, but which has been generalized with right justification and kerning implementations. Some software, such as **Illustrator**, have these functions but they are carefully hidden and transparent to the user. However, **kerning algorithms** are not too advanced depending on the software and the worst part is that they cannot be enhanced or modified. For example, it is possible to use **PowerPoint** to format a text and then use it in our system, but the quality of kerning leaves much to be desired in some cases. Our **kerning** is based purely on the visual appearance of two neighboring letters and it requires doing it **by hand**. This is an advantage but it has an enormous inconvenient: it is very time consuming. Once determined, these measures will not change for a given font. In addition, luckily, this method can use the majority of measures from another similar-looking font. For example, all **Sans Serif** fonts (currently very fashionable) are very similar and share a majority of measures. In these cases only a handful of measures need to be changed from a font to another.
 
-However, this **kerning** method is only interesting for short texts to be used artistically. For heavy usage, with a huge variety of fonts, as it is usually the case in real life, this is not practical. For this reason another [program](https://github.com/nilostolte/Projects-Presentations/blob/main/Automatic%20Vector%20Fonts%20Generator%20Project.md#automatic-vector-fonts-generator-project--glyphs-their-widths-and-kerning-pairs) has been developed for the final system, replacing the prototype, that reads **Truetype** and **Opentype** fonts directly from their files. This [program](https://github.com/nilostolte/Projects-Presentations/blob/main/Automatic%20Vector%20Fonts%20Generator%20Project.md#automatic-vector-fonts-generator-project--glyphs-their-widths-and-kerning-pairs) reads the kerning pairs information given by the font designer. This information is then used in our embedded font methodology to display the text the way it was intended by the font designer. Another [program](https://github.com/nilostolte/Projects-Presentations/blob/main/String%20Vectorizer.md#string-vectorizer-project) was developed to vectorize strings into Java Path2D.Float paths. These two 
-programs are able to process more heavy duty tasks for any kind of font, but without text justification yet.
+However, this **kerning** method is only interesting for short texts to be used artistically. For heavy usage, with a huge variety of fonts, as it is usually the case in real life, this is not practical. For this reason another [program](https://github.com/nilostolte/Projects-Presentations/blob/main/Automatic%20Vector%20Fonts%20Generator%20Project.md#automatic-vector-fonts-generator-project--glyphs-their-widths-and-kerning-pairs) has been developed for the final system, replacing the prototype, that reads **Truetype** and **Opentype** fonts directly from their files. This [program](https://github.com/nilostolte/Projects-Presentations/blob/main/Automatic%20Vector%20Fonts%20Generator%20Project.md#automatic-vector-fonts-generator-project--glyphs-their-widths-and-kerning-pairs) reads the kerning pairs information given by the font designer. This information is then used in our embedded font methodology to display the text the way it was intended by the font designer. Another [program](https://github.com/nilostolte/Projects-Presentations/blob/main/String%20Vectorizer.md#string-vectorizer-project) was developed to vectorize strings into Java Path2D.Float paths. These two programs are able to process more heavy duty tasks for any kind of font, but just for titles and text not justified. For justified text as in case of booklets, brochures or other longuer and formatted texts, another [**BreakIntoLines**](https://github.com/nilostolte/Projects-Presentations/blob/main/BreakIntoLines.md#breakintolines) was developed in Java to substitute the function with the same name in the prototype.
 
-## Origins of the System
 
-![image](https://user-images.githubusercontent.com/80269251/111805001-02a1b480-88a7-11eb-9df1-e8f411126d42.png)
+# New Java Tools in the System to Substitute the Prototype
 
-This is the Maxcalc app that was once published in Google market. Some other apps were realized at that time such as a Sudoko game generator to play offline or to automatically solve a Sudoko grid offline. The creation of the popup menus and overall look of the design in MaxCalc (now called π calculator) is the original idea of the system. 
 
-By looking in more detail the design of interfaces using vector primitives I have realized that these primitives inherited their basic elements from their distant cousins, the vector graphics languages that I already knew and had already more than 30 years of experience. To link these two worlds together a proof should be shown that this would really work. The starting linking element was the Java and Android Java “path” primitive where the placement of several vector primitives together give origin to more complex graphics elements. With the hands on a graphics element in PostScript and a digit in a vector font, both transformed into Java paths and displayed into an Android application is sufficient proof that this is feasible.
-
-# Graphics Designers as GUI Creators: a less expensive and superior way to create GUIs
-
-Because of the clutter, the design difficulty and lack of elegance and flexibility of available elements for creating interfaces on **Android**, the need of richer graphics designs for **Java Android** has been first detected. The difficulty perceived was that the design, the colors and art are of an extreme importance for the appearance of a graphics interface element. However, these elements are, in general, designed by programmers and not by artists. Realizing that this has been a huge mistake for decennials and that only now artists start to express themselves in web sites design, it is logical to think to use some of these very modern and evolved resources also in the universe of interfaces for Android applications.
-
-This is a great opportunity for enterprises to save a lot in software development, since interfaces are very important for the look and feel of the program. This is so wide known that many sci-fi movies show computer programs only through fancy manipulations of a graphics user interface. One of the first movies to exploit zooming in computer interfaces was in **Blade Runner**. 
-
-Since skilled programmers are very expensive, it is far better to let them take care of more complex parts of a program, and leave the design to graphics designers artists. With proper tools, such as **Adobe XD**, interactive interfaces can be created by graphics designers. The vector design as well as the interactive events defined in Adobe XD can be read and transformed in Java code implementing this design. One blatant advantage of this approach is that making deep changes in the interface is easy, fast and bug-free, since its code is generated automatically. Prototyping with several entirely different versions of the same interface gives birth to a whole new way of developing programs.
-
-# Automatic Vector Fonts Generator Project – Glyphs, their widths and kerning pairs
+## Automatic Vector Fonts Generator Project – Glyphs, their widths and kerning pairs
 
 Please check this [link to the project](https://github.com/nilostolte/Projects-Presentations/blob/main/Automatic%20Vector%20Fonts%20Generator%20Project.md#automatic-vector-fonts-generator-project--glyphs-their-widths-and-kerning-pairs).
 
@@ -98,13 +95,21 @@ Font parsers in Java supply access to Glyphs, their widths, and a simple kerning
 
 A huge breakthrough was using OpenType.js and the glyph inspector of the site https://opentype.js.org, which was modified to generate a Java class for the font. A caveat was a bug that didn't take the correct order of points for bezier curves from the function returning glyph commands, which was debugged with JSON.stringify.
 
-# String Vectorizer Project
+## String Vectorizer Project
 
 Please check this [link to the project](https://github.com/nilostolte/Projects-Presentations/blob/main/String%20Vectorizer.md#string-vectorizer-project).
 
 This project is about a program that vectorizes strings into Java Path2D.Float paths.
 
-# BreakIntoLines Project
+## BreakIntoLines Project
 
 This [project](https://github.com/nilostolte/Projects-Presentations/blob/main/BreakIntoLines.md#breakintolines) is about a 
 Java program that vectorizes a string into Java Path2D.Float paths, breaking it into lines and right justifying the text.
+
+# Graphics Designers as GUI Creators: a less expensive and superior way to create GUIs
+
+Because of the clutter, the design difficulty and lack of elegance and flexibility of available elements for creating interfaces on **Android**, the need of richer graphics designs for **Java Android** has been first detected. The difficulty perceived was that the design, the colors and art are of an extreme importance for the appearance of a graphics interface element. However, these elements are, in general, designed by programmers and not by artists. Realizing that this has been a huge mistake for decennials and that only now artists start to express themselves in web sites design, it is logical to think to use some of these very modern and evolved resources also in the universe of interfaces for Android applications.
+
+This is a great opportunity for enterprises to save a lot in software development, since interfaces are very important for the look and feel of the program. This is so wide known that many sci-fi movies show computer programs only through fancy manipulations of a graphics user interface. One of the first movies to exploit zooming in computer interfaces was in **Blade Runner**. 
+
+Since skilled programmers are very expensive, it is far better to let them take care of more complex parts of a program, and leave the design to graphics designers artists. With proper tools, such as **Adobe XD**, interactive interfaces can be created by graphics designers. The vector design as well as the interactive events defined in Adobe XD can be read and transformed in Java code implementing this design. One blatant advantage of this approach is that making deep changes in the interface is easy, fast and bug-free, since its code is generated automatically. Prototyping with several entirely different versions of the same interface gives birth to a whole new way of developing programs.
