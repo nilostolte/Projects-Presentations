@@ -81,6 +81,12 @@ However, this **kerning** method is only interesting for short texts to be used 
 
 # New Java Tools in the System to Substitute the Prototype
 
+## Updated Data Flow Diagram
+<br>
+
+![image](https://user-images.githubusercontent.com/80269251/112063987-a81f8700-8b38-11eb-9305-f709eeb3bdc8.png)
+
+<br>
 
 ## Automatic Vector Fonts Generator Project – Glyphs, their widths and kerning pairs
 
