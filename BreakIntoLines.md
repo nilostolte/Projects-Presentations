@@ -2,8 +2,9 @@
 
 ## Description
 
-This project is about a Java program that vectorizes a string into Java Path2D.Float paths, breaking it into lines and
-right justifying the text.
+This project is about a Java program that vectorizes a string into Java Path2D.Float paths, breaking it into lines and right justifying the text.
+
+It started with a function in PostScript as shown in the project [𝝿 𝗩𝗲𝗰𝘁𝗼𝗿 𝗚𝗨𝗜 𝗳𝗼𝗿 𝗝𝗮𝘃𝗮 𝗮𝗻𝗱 𝗔𝗻𝗱𝗿𝗼𝗶𝗱](https://github.com/nilostolte/Projects-Presentations/blob/main/%CF%80%20Vector%20GUI%20for%20Java%20and%20Android.md#%CF%80-vector-gui-for-java-and-android). But PostScript was just a prototype language and it only takes Type 1 fonts where one cannot access Kerning Pairs because they are encrypted. With the project [𝗩𝗲𝗰𝘁𝗼𝗿 𝗙𝗼𝗻𝘁𝘀: 𝗜𝗻𝗳𝗼𝗿𝗺𝗮𝘁𝗶𝗼𝗻 𝗘𝘅𝘁𝗿𝗮𝗰𝘁𝗶𝗼𝗻 - 𝗚𝗹𝘆𝗽𝗵𝘀, 𝗧𝗵𝗲𝗶𝗿 𝗪𝗶𝗱𝘁𝗵𝘀 𝗮𝗻𝗱 𝗞𝗲𝗿𝗻𝗶𝗻𝗴 𝗣𝗮𝗶𝗿𝘀](https://github.com/nilostolte/Projects-Presentations/blob/main/Automatic%20Vector%20Fonts%20Generator%20Project.md#automatic-vector-fonts-generator-project--glyphs-their-widths-and-kerning-pairs) one is able to read the Kerning Pairs as well as other font information directly from their font files. This is the final version which generates texts with Opentype and Truetype fonts without needing the original font files, which is appropriate to embedded applications.
 
 After a font is converted with the 
 [modified Glyph Inspector](https://github.com/nilostolte/Projects-Presentations/blob/main/Automatic%20Vector%20Fonts%20Generator%20Project.md#automatic-vector-fonts-generator-project--major-breakthrough) that generates a font class that can be embedded into any 
