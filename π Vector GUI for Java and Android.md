@@ -103,3 +103,8 @@ A huge breakthrough was using OpenType.js and the glyph inspector of the site ht
 Please check this [link to the project](https://github.com/nilostolte/Projects-Presentations/blob/main/String%20Vectorizer.md#string-vectorizer-project).
 
 This project is about a program that vectorizes strings into Java Path2D.Float paths.
+
+# BreakIntoLines Project
+
+This [project] https://github.com/nilostolte/Projects-Presentations/blob/main/BreakIntoLines.md#breakintolines is about a 
+Java program that vectorizes a string into Java Path2D.Float paths, breaking it into lines and right justifying the text.
