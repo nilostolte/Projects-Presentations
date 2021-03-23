@@ -56,3 +56,5 @@ been debugged using JSON.stringify that showed the correct order.
 This is how the embedded font looks like:
 ![image](https://user-images.githubusercontent.com/80269251/111825065-6800a000-88bd-11eb-98f8-0fd820fcb665.png)
 
+Each glyph of the font is defined as a Path2D.Float path, composed by commands `moveTo`, `lineTo`, `quadTo`, `curveTo`, and `closePath`, with the respective point coordinates. These coordinates are assumed as the glyph was positioned at the origin.
+
