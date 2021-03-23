@@ -54,21 +54,28 @@ Subsequent lines are constructed in the same way, except that the y coordinates 
 ## Examples
 
 ### With a Single Font
-![image](https://user-images.githubusercontent.com/80269251/111925521-93cb8380-8a7f-11eb-94f8-d42d50366aa4.png)
+
+<p align="center"">
+   <img src="https://user-images.githubusercontent.com/80269251/111925521-93cb8380-8a7f-11eb-94f8-d42d50366aa4.png" />
+</p>
 
 In this snapshot it was used: a MyriadPro-Regular.otf font, scaled to 20 points size, line widths limited to 380 points, a
 20 points y coordinate increment, and a 5 points minimum word separator.
 
 ### With Two Fonts
 
-![image](https://user-images.githubusercontent.com/80269251/111985704-57ca0a00-8ae3-11eb-9e71-c319486bac6c.png)
+<p align="center"">
+   <img src="https://user-images.githubusercontent.com/80269251/111985704-57ca0a00-8ae3-11eb-9e71-c319486bac6c.png" />
+</p>
 
 In this snapshot it was used: MyriadPro-Regular.otf and MyriadPro-Bold.otf fonts, scaled to 20 points size, line widths 
 limited to 380 points, a 20 points y coordinate increment, and a 4 points minimum word separator.
 
 ### With Four Fonts
 
-![image](https://user-images.githubusercontent.com/80269251/112010236-8359ee00-8afd-11eb-817a-29a4984939ee.png)
+<p align="center"">
+   <img src="https://user-images.githubusercontent.com/80269251/112010236-8359ee00-8afd-11eb-817a-29a4984939ee.png" />
+</p>
 
 In this snapshot it was used: MyriadPro-Regular.otf, MyriadPro-Bold.otf, MyriadPro-It.otf and MyriadPro-SemiboldIt.otf fonts, 
 scaled to 20 points size, line widths limited to 380 points, a 20 points y coordinate increment, and a 4 points minimum word 
@@ -76,7 +83,9 @@ separator.
 
 The following string was used to obtain the above result:
 
-![image](https://user-images.githubusercontent.com/80269251/112013660-97531f00-8b00-11eb-9143-9bc29d31767c.png)
+<p align="center"">
+   <img src="https://user-images.githubusercontent.com/80269251/112013660-97531f00-8b00-11eb-9143-9bc29d31767c.png" />
+</p>
 
 
 
