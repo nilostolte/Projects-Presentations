@@ -35,6 +35,10 @@ This process is done by searching each glyph in our embedded font (which is a Ja
 
 The resulting glyphs are stored in a _Path2D.Float_ path, as commented above. But a path cannot store a very important data, which is the total word width, or in other words, the whole path width. That is why a new class `Word` is defined by inherinting it from _Path2D.Float_. The width of the path is then stored in the new class and instead of using a _Path2D.Float_ class one uses the `Word` class instead.
 
+<p align="center"">
+   <img src="https://user-images.githubusercontent.com/80269251/112172767-5ecc4780-8bcb-11eb-9c5e-788390ba58b7.png" />
+</p>
+
 ### Formatting the Paragraph
 
 The process of formatting the paragraph is a matter of determining which words fit into a line. A line is limited in width and this is a parameter that should be provided. As usual, this width is assumed to be in points (1/72 inch). A line is defined as an `ArrayList<Word>`, where words are stored one by one as they fit the line assuming the spaces separating the words are greater or equal to a specified width. Once a word is unable to fit in the line anymore with the given constraints, the line is "shown" with the words separated by the remaining space divided by the number of word separators. The remaining space is calculated from the subtraction of the line width (which is fixed and given as a parameter) by all the words' widths in the line. 
