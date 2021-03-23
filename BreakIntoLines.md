@@ -35,8 +35,10 @@ This process is done by searching each glyph in our embedded font (which is a Ja
 
 The resulting glyphs are stored in a _Path2D.Float_ path, as commented above. But a path cannot store a very important data, which is the total word width, or in other words, the whole path width. That is why a new class `Word` is defined by inherinting it from _Path2D.Float_. The width of the path is then stored in the new class and instead of using a _Path2D.Float_ class one uses the `Word` class instead.
 
+The algorithm below details how the method is implemented. The _"input"_ `string` contains the characters of the word to be converted, and is actually a parameter passed to the method. The variable `word` is of type `Word`, inherited from _Path2D.Float_, the path created and being built in this method. At first, the x translation value `dx` is zero and the `word` path is created, being initially empty. Next, two loops are carried on. The first loop traverses all characters of `string`, one character at a time. For each character, the glyph path is searched in the font and saved in variable `p` of type _Path2D.Float_. The second loop traverses all segments of `p` until there are no more segments remaining. For each segment, the method tests if the segment is a `moveTo`, `lineTo`, `quadTo`, `curveTo`, or a `closePath`. Once the segment is identified, the points are translated and scaled as indicated, and a copy of the segment is appended to `word` by using its building segment methods `moveTo`, `lineTo`, `quadTo`, `curveTo`, and a `closePath` as indicated. Next, `dx` is incremented with the width of the glyph and with the kerning width, so the next glyph will be properly translated right after it. From there, the algorithm loops back to the test to see if path `p` is empty. Once it has no further segments, `word` is returned.
+
 <p align="center"">
-   <img src="https://user-images.githubusercontent.com/80269251/112179710-4ceda300-8bd1-11eb-9614-9ccddd943be1.png" />
+   <img src="https://user-images.githubusercontent.com/80269251/112189902-de154780-8bda-11eb-81f9-675bac4b5491.png" />
 </p>
 
 ### Formatting the Paragraph
