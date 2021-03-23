@@ -23,6 +23,16 @@ switching is done by using character /000 followed by a character with the index
 These characters can appear at any place in a word, and they are not counted as actual characters.
 Other non-printing characters can also be use as commands in this same manner.
 
+## Method Description and Data Structures
+
+### Decomposing Words
+
+The initial text is a string that is to be converted to a formatted paragraph. The first step is to separate every word in the string through the method _split_ from class _String_. This method generates the array of strings `words` where each position contains a string with a word of the previous string. Next, the array `paragraph` of the same size is created but containing in each position a _Path2D.Float_ path with the glyphs of each character of each word as shown below:
+
+![image](https://user-images.githubusercontent.com/80269251/112131564-0df32980-8ba0-11eb-8a24-894521243b42.png)
+
+This process is done by searching each glyph in our embedded font (which is a Java class as explained in the project [**Automatic Vector Fonts Generator Project – Glyphs, their widths and kerning pairs**](https://github.com/nilostolte/Projects-Presentations/blob/main/Automatic%20Vector%20Fonts%20Generator%20Project.md#font-transformed-in-a-java-class)). Each glyph of the font is defined as a Path2D.Float path, composed by commands `moveTo`, `lineTo`, `quadTo`, `curveTo`, and `closePath`, with the respective point coordinates. The glyphs are then traversed one by one, command by command, and their points are translated in x by the same amount for each glyph and scaled to the required size. For the first glyph the translation amount is zero, since it is assumed to be placed at the origin. Subsequent glyphs points are translated in x by the cumulated value of the previous characters widths and the kerning distances depending on the kerning pairs of characters in the word. Each point, once translated in x, will have both coordiantes multiplied by the scale factor. 
+
 ## Examples
 
 ### With a Single Font
