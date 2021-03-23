@@ -36,7 +36,7 @@ This process is done by searching each glyph in our embedded font (which is a Ja
 The resulting glyphs are stored in a _Path2D.Float_ path, as commented above. But a path cannot store a very important data, which is the total word width, or in other words, the whole path width. That is why a new class `Word` is defined by inherinting it from _Path2D.Float_. The width of the path is then stored in the new class and instead of using a _Path2D.Float_ class one uses the `Word` class instead.
 
 <p align="center"">
-   <img src="https://user-images.githubusercontent.com/80269251/112172767-5ecc4780-8bcb-11eb-9c5e-788390ba58b7.png" />
+   <img src="https://user-images.githubusercontent.com/80269251/112179710-4ceda300-8bd1-11eb-9614-9ccddd943be1.png" />
 </p>
 
 ### Formatting the Paragraph
