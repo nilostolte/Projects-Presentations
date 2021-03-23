@@ -64,7 +64,7 @@ limited to 380 points, a 20 points y coordinate increment, and a 4 points minimu
 
 ![image](https://user-images.githubusercontent.com/80269251/112010236-8359ee00-8afd-11eb-817a-29a4984939ee.png)
 
-In this snapshot it was used: MyriadPro-Regular.otf, MyriadPro-Bold.otf, MyriadPro-It.otf and MyriadPro-SemiboldIt.otffonts, 
+In this snapshot it was used: MyriadPro-Regular.otf, MyriadPro-Bold.otf, MyriadPro-It.otf and MyriadPro-SemiboldIt.otf fonts, 
 scaled to 20 points size, line widths limited to 380 points, a 20 points y coordinate increment, and a 4 points minimum word 
 separator.
 
