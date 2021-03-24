@@ -66,7 +66,7 @@ The algorithm for the <b><i>breakintolines</b></i> method is shown in the fluxog
 Each time a line is output the variable <b><i>yline</b></i> is incremented by <b><i>yinc</b></i>, the distance between the lines.
 
 <p align="center"">
-   <img src="https://user-images.githubusercontent.com/80269251/112370456-cd84d000-8cb3-11eb-9074-52fa27ad72a3.png" />
+   <img src="https://user-images.githubusercontent.com/80269251/112377687-720b1000-8cbc-11eb-84f2-109982935b91.png" />
 </p>
 
 #### Formatting the Paragraph
