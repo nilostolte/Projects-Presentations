@@ -62,15 +62,16 @@ A very important additional point one can easily see from what is shown here is 
 
 #### The Algorithm
 
-The algorithm for the **breakintolines** method is shown in the fluxogram below. The _"input"_ is in reality the parameter to the method, that is the **paragraph** array containing the glyphs for each line as explained in the previous section. The _"output"_ operator can be substituted by any output such as a file, a println, a display or a `Path.Float`.
+The algorithm for the <b><i>breakintolines</b></i> method is shown in the fluxogram below. The <b><i>input</b></i> is in reality the parameter to the method, that is the <b><i>paragraph</b></i> array containing the glyphs for each word as explained in the previous section. The <b><i>output</b></i> operator can be substituted by any output such as a file, a println, a display or a `Path.Float`. 
+Each time a line is output the variable <b><i>yline</b></i> is incremented by <b><i>yinc</b></i>, the distance between the lines.
 
 <p align="center"">
-   <img src="https://user-images.githubusercontent.com/80269251/112352783-7413a580-8ca1-11eb-9ed7-25be535c9f67.png" />
+   <img src="https://user-images.githubusercontent.com/80269251/112360205-70cfe800-8ca8-11eb-9d39-771dcfbacb1a.png" />
 </p>
 
 #### Formatting the Paragraph
 
-The process of formatting the paragraph is a matter of determining which words fit into a line. A line is limited in width and this is a parameter that should be provided. As usual, this width is assumed to be in points (1/72 inch). A line is defined as an `ArrayList<Word>`, where words are stored one by one as they fit the line assuming the spaces separating the words are greater or equal to a specified width. Once a word is unable to fit in the line anymore with the given constraints, the line is "shown" with the words separated by the remaining space divided by the number of word separators. The remaining space is calculated from the subtraction of the line width (which is fixed and given as a parameter) by all the words' widths in the line. 
+The process of formatting the paragraph is a matter of determining which words fit into a line. A line is limited in width and this is a parameter that should be provided (<b><i>pw</b></i> in the algorithm above). This will also determine the width of the paragraph formatted. As usual, this width is assumed to be in points (1/72 inch). A line is defined as an `ArrayList<Word>`, where words are stored one by one as they fit the line assuming the spaces separating the words are greater or equal to a specified width. Once a word is unable to fit in the line anymore with the given constraints, the line is "shown" with the words separated by the remaining space divided by the number of word separators. The remaining space is calculated from the subtraction of the line width (which is fixed and given as a parameter) by all the words' widths in the line. 
 
 #### _"Showing"_ the lines
 
