@@ -65,8 +65,6 @@ A very important additional point one can easily see from what is shown here is 
 The algorithm for the <b><i>breakintolines</b></i> method is shown in the fluxogram below. The <b><i>input</b></i> is in reality the parameter to the method, that is the <b><i>paragraph</b></i> array containing the glyphs for each word as explained in the previous section. The <b><i>output</b></i> operator can be substituted by any output such as a file, a println, a display or a `Path.Float`. 
 Each time a line is output the variable <b><i>yline</b></i> is incremented by <b><i>yinc</b></i>, the distance between the lines.
 
-![image]()
-
 <p align="center"">
    <img src="https://user-images.githubusercontent.com/80269251/112370456-cd84d000-8cb3-11eb-9074-52fa27ad72a3.png" />
 </p>
