@@ -1,4 +1,4 @@
-# BreakIntoLines
+# BreakIntoLines Project
 
 ## Description
 
@@ -23,7 +23,7 @@ switching is done by using character /000 followed by a character with the index
 These characters can appear at any place in a word, and they are not counted as actual characters.
 Other non-printing characters can also be use as commands in this same manner.
 
-## Method Description and Data Structures
+## Implementation Details and Data Structures
 
 ### Decomposing Words
 
@@ -37,10 +37,18 @@ This process is done by searching each glyph in our embedded font (which is a Ja
 
 Once the glyphs are searched, they are traversed one by one, segment by segment, and their coordinates are transformed accordingly. For the first glyph is not translated, since it is assumed to be placed at the origin. Subsequent glyphs x coordinates are incremented with the cumulated value of the previous glyphs and kerning widths, depending on their kerning pairs. Finally both coordinates are multiplied by the scale.
 
-The resulting glyphs are stored in a _Path2D.Float_ path, as commented above. But a path cannot store a very important datum, which is the total word width, or in other words, the whole path width. That is why a new class `Word` is defined by inherinting it from _Path2D.Float_. The width of the path is then stored in the new class and instead of using a _Path2D.Float_ class one uses the `Word` class instead.
+The resulting glyphs are stored in a _Path2D.Float_ path, as commented above. But a path cannot store a very important datum, which is the total word width, or in other words, the whole path width. That is why a new class `Word` is defined by inherinting it from _Path2D.Float_. The width of the path is then stored in the new class and instead of using a _Path2D.Float_ class one uses the `Word` class instead. It's definition in Java is as shown:
 
-The algorithm below details how the method is implemented. The _"input"_ `string` contains the characters of the word to be converted, and is actually a parameter passed to the method. The variable `word` is of type `Word`, inherited from _Path2D.Float_, the path created and being built in this method. At first, the x translation value `dx` is zero and the `word` path is created, being initially empty. Next, two loops are carried on. The first loop traverses all characters of `string`, one character at a time. For each character, the glyph path is searched in the font and saved in variable `p` of type _Path2D.Float_. The second loop traverses all segments of `p` until there are no more segments remaining. For each segment, the method tests if the segment is a `moveTo`, `lineTo`, `quadTo`, `curveTo`, or a `closePath`. Once the segment is identified, the points are translated and scaled as indicated, and a copy of the segment is appended to `word` by using its building segment methods `moveTo`, `lineTo`, `quadTo`, `curveTo`, and a `closePath` as indicated. Next, `dx` is incremented with the width of the glyph and with the kerning width, so the next glyph will be properly translated right after it. From there, the algorithm loops back to the test to see if path `p` is empty. Once it has no further segments, `dx` is multiplied by the scale and stored inside `word` as the width of the path (this is not indicated in the algorithm), and word is returned. 
+```
+class Word extends Path2D.Float {
+	double size;
 
+	public void setWidth(double translation) { size = translation; }
+	public double getWidth() { return size; }
+}
+```
+The algorithm below details how the method is implemented. The _"input"_ `string` contains the characters of the word to be converted, and is actually a parameter passed to the method. The variable `word` is of type `Word`, inherited from _Path2D.Float_, the path created and being built in this method. At first, the x translation value `dx` is zero and the `word` path is created, being initially empty. Next, two loops are carried on. The first loop traverses all characters of `string`, one character at a time. For each character, the glyph path is searched in the font and saved in variable `p` of type _Path2D.Float_. The second loop traverses all segments of `p` until there are no more segments remaining. For each segment, the method tests if the segment is a `moveTo`, `lineTo`, `quadTo`, `curveTo`, or a `closePath`. Once the segment is identified, the points are translated and scaled as indicated, and a copy of the segment is appended to `word` by using its building segment methods `moveTo`, `lineTo`, `quadTo`, `curveTo`, and a `closePath` as indicated. Next, `dx` is incremented with the width of the glyph and with the kerning width, so the next glyph will be properly translated right after it. From there, the algorithm loops back to the test to see if path `p` is empty. 
+Once it has no further segments, the width of the path (this is not indicated in the algorithm) is stored inside `word` in this way: `word.setWidth(dx * scale)`, and word is returned. 
 
 <p align="center"">
    <img src="https://user-images.githubusercontent.com/80269251/112232446-f3a46480-8c0e-11eb-8fbb-e85edb303709.png" />
@@ -48,17 +56,23 @@ The algorithm below details how the method is implemented. The _"input"_ `string
 
 Notice that `dx` can be seen as a vector in the _font coordinate system_ because it is incremented with values (glyph widths and kerning widths) from the font which are also in the _font coordinate system_. That is why the scale must be applied to it, so it can be used in what can be seen as the _word, paragraph or line coordinate system_, since the three share the same coordinate system. When the line is finally _"shown"_ the words are finally transformed to the final _screen coordinate system_ when it can be explicitly _"seen"_. Implicitly, one is actually working with three different coordinate systems, although the transformation matrix is not necessary because calculations are very simplified, only involving scale and translations. 
 
-A very important additional point, one can easily see from this that the result is always WYSIWYG, because "What You See" is exactly what is calculated internally, that will remain unchanged in any other media. This is perhaps the most critical point in working with vector graphics primitives afterall.
+A very important additional point one can easily see from what is shown here is that the result is always WYSIWYG, because "What You See" is exactly what is calculated internally, and it will remain unchanged in any other media. This is perhaps the most interesting reason to work with vector graphics primitives afterall.
 
-### Breakintolines Method - Formatting the Paragraph
+### Breakintolines Method
+
+#### The Algorithm
+
+The algorithm for the **breakintolines** method is shown in the fluxogram below. The _"input"_ is in reality the parameter to the method, that is the **paragraph** array containing the glyphs for each line as explained in the previous section. The _"output"_ operator can be substituted by any output such as a file, a println, a display or a `Path.Float`.
 
 <p align="center"">
-   <img src="https://user-images.githubusercontent.com/80269251/112341663-fe570c00-8c97-11eb-84ae-fd3bb759bdf6.png" />
+   <img src="https://user-images.githubusercontent.com/80269251/112352783-7413a580-8ca1-11eb-9ed7-25be535c9f67.png" />
 </p>
+
+#### Formatting the Paragraph
 
 The process of formatting the paragraph is a matter of determining which words fit into a line. A line is limited in width and this is a parameter that should be provided. As usual, this width is assumed to be in points (1/72 inch). A line is defined as an `ArrayList<Word>`, where words are stored one by one as they fit the line assuming the spaces separating the words are greater or equal to a specified width. Once a word is unable to fit in the line anymore with the given constraints, the line is "shown" with the words separated by the remaining space divided by the number of word separators. The remaining space is calculated from the subtraction of the line width (which is fixed and given as a parameter) by all the words' widths in the line. 
 
-### _"Showing"_ the lines
+#### _"Showing"_ the lines
 
 Since each line is represented by a collection of words (actually an `ArrayList<Word>`), each word assumed to be at the origin, the final line is a new path where the words are copied and translated according to their widths (using the same algorithm to copy glyphs into words as commented previously) and the word separators calculated as shown above. This final path is the actual line that can be either displayed, printed, or written to a file.
 
