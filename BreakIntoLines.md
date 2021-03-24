@@ -50,7 +50,11 @@ Notice that `dx` can be seen as a vector in the _font coordinate system_ because
 
 A very important additional point, one can easily see from this that the result is always WYSIWYG, because "What You See" is exactly what is calculated internally, that will remain unchanged in any other media. This is perhaps the most critical point in working with vector graphics primitives afterall.
 
-### Formatting the Paragraph
+### Breakintolines Method - Formatting the Paragraph
+
+<p align="center"">
+   <img src="https://user-images.githubusercontent.com/80269251/112341663-fe570c00-8c97-11eb-84ae-fd3bb759bdf6.png" />
+</p>
 
 The process of formatting the paragraph is a matter of determining which words fit into a line. A line is limited in width and this is a parameter that should be provided. As usual, this width is assumed to be in points (1/72 inch). A line is defined as an `ArrayList<Word>`, where words are stored one by one as they fit the line assuming the spaces separating the words are greater or equal to a specified width. Once a word is unable to fit in the line anymore with the given constraints, the line is "shown" with the words separated by the remaining space divided by the number of word separators. The remaining space is calculated from the subtraction of the line width (which is fixed and given as a parameter) by all the words' widths in the line. 
 
