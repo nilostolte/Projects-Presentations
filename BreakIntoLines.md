@@ -25,7 +25,7 @@ Other non-printing characters can also be use as commands in this same manner.
 
 ## Implementation Details and Data Structures
 
-### Decomposing Words
+### Converting Strings to Glyphs
 
 The initial text is a string that is to be converted to a formatted paragraph. The first step is to separate every word in the string through the method _split_ from class _String_. This method generates the array of strings `words` where each position contains a string with a word of the previous string. Next, the array `paragraph` of the same size is created but containing in each position a _Path2D.Float_ path with the glyphs of each character of each word as shown below:
 
@@ -33,7 +33,7 @@ The initial text is a string that is to be converted to a formatted paragraph. T
    <img src="https://user-images.githubusercontent.com/80269251/112209967-7a961480-8bf0-11eb-8b85-aa1954d9e1ac.png" />
 </p>
 
-This process is done by searching each glyph in our embedded font (which is a Java class as explained in the project [**Automatic Vector Fonts Generator Project – Glyphs, their widths and kerning pairs**](https://github.com/nilostolte/Projects-Presentations/blob/main/Automatic%20Vector%20Fonts%20Generator%20Project.md#font-transformed-in-a-java-class)). Each glyph of the font is defined as a Path2D.Float path, composed by `moveTo`, `lineTo`, `quadTo`, `curveTo`, or `closePath` segments, with their respective points coordinates. These coordinates are all defined in the font coordinate system where the contents are defined in unitsPerEm. A glyph is supposed to be a 1 point square, so its scale is 1/unitsPerEm. To scale glyphs to their proper size, coordinates must be multiplied by (font size)/unitsPerEm.
+This process is done by searching each glyph in our embedded font (which is a Java class as explained in the project [**Automatic Vector Fonts Generator Project – Glyphs, their widths and kerning pairs**](https://github.com/nilostolte/Projects-Presentations/blob/main/Automatic%20Vector%20Fonts%20Generator%20Project.md#font-transformed-in-a-java-class)). Each glyph of the font is defined as a Path2D.Float path, composed by `moveTo`, `lineTo`, `quadTo`, `curveTo`, or `closePath` segments, with their respective points coordinates. These coordinates are all defined in the font coordinate system where the contents are defined in <b><i>unitsPerEm</i></b>. A glyph is supposed to be a 1 point square, so its <b><i>scale</i></b> is <b><i>1÷unitsPerEm</i></b>. To scale glyphs to their proper size, coordinates must be multiplied by <b><i>(font size)÷unitsPerEm</i></b>.
 
 Once the glyphs are searched, they are traversed one by one, segment by segment, and their coordinates are transformed accordingly. For the first glyph is not translated, since it is assumed to be placed at the origin. Subsequent glyphs x coordinates are incremented with the cumulated value of the previous glyphs and kerning widths, depending on their kerning pairs. Finally both coordinates are multiplied by the scale.
 
@@ -65,8 +65,10 @@ A very important additional point one can easily see from what is shown here is 
 The algorithm for the <b><i>breakintolines</b></i> method is shown in the fluxogram below. The <b><i>input</b></i> is in reality the parameter to the method, that is the <b><i>paragraph</b></i> array containing the glyphs for each word as explained in the previous section. The <b><i>output</b></i> operator can be substituted by any output such as a file, a println, a display or a `Path.Float`. 
 Each time a line is output the variable <b><i>yline</b></i> is incremented by <b><i>yinc</b></i>, the distance between the lines.
 
+![image]()
+
 <p align="center"">
-   <img src="https://user-images.githubusercontent.com/80269251/112360205-70cfe800-8ca8-11eb-9d39-771dcfbacb1a.png" />
+   <img src="https://user-images.githubusercontent.com/80269251/112370456-cd84d000-8cb3-11eb-9074-52fa27ad72a3.png" />
 </p>
 
 #### Formatting the Paragraph
