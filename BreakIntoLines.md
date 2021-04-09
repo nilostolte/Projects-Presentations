@@ -39,7 +39,7 @@ Once the glyphs are searched, they are traversed one by one, segment by segment,
 
 The resulting glyphs are stored in a _Path2D.Float_ path, as commented above. But a path cannot store a very important datum, which is the total word width, or in other words, the whole path width. That is why a new class `Word` is defined by inherinting it from _Path2D.Float_. The width of the path is then stored in the new class and instead of using a _Path2D.Float_ class one uses the `Word` class instead. Its definition in Java is as shown:
 
-```
+```java
 class Word extends Path2D.Float {
 	double size;
 
