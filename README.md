@@ -29,4 +29,4 @@ program that vectorizes a string into Java Path2D.Float paths, breaking it into 
 This [project](https://github.com/nilostolte/PostScript/tree/main/Examples/Convertion%20to%20Java/ExclamationIcon#exclamationicon) shows how to convert PostScript files into Java classes semi-automatically.
 
 ## Java Vector GUI
-This [project](https://github.com/nilostolte/Java-Vector-GUI/tree/main/MenuInfographics6#menuinfographics6) shows what a vector GUI can be coded. This code has been used for other projects like [MicroVBA](https://github.com/nilostolte/MicroVBA-PowerPoint).
+This [project](https://github.com/nilostolte/Java-Vector-GUI/tree/main/MenuInfographics6#menuinfographics6) shows how a vector GUI can be coded. This code has been used for other projects like in [MicroVBA](https://github.com/nilostolte/MicroVBA-PowerPoint).
