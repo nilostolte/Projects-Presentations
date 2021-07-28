@@ -84,7 +84,9 @@ However, this **kerning** method is only interesting for short texts to be used 
 ## Updated Data Flow Diagram
 <br>
 
-![image](https://user-images.githubusercontent.com/80269251/127378223-d313ee49-6e5e-4e27-98f5-de4cf324f19f.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/80269251/127383023-08b64f0a-7ea9-4d1b-b539-4f6129597d4e.png">
+</p>
 
 <br>
 
@@ -136,7 +138,9 @@ to show the features proposed: **ShowJustifiedFormattedText.java** and **ShowJus
 The first example is the one shown below. PDFBox has several examples that help users to use the various
 features this software offers.
 
-![image](https://user-images.githubusercontent.com/80269251/127378791-43890d2a-2940-41f2-bd6a-aade44a6ac11.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/80269251/127384737-ed6d0d48-eff0-485f-b2b4-2ef039a4e83c.png">
+</p>
 
 Below, an example of book copied from a web site using a Java program to quickly jump to the text and copy
 just the book. The PDF book generated is shown using the PDF Debugger from PDFBox. On the right, the code
