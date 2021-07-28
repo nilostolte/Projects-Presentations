@@ -84,7 +84,7 @@ However, this **kerning** method is only interesting for short texts to be used 
 ## Updated Data Flow Diagram
 <br>
 
-![image](https://user-images.githubusercontent.com/80269251/112063987-a81f8700-8b38-11eb-9305-f709eeb3bdc8.png)
+![image](https://user-images.githubusercontent.com/80269251/127378223-d313ee49-6e5e-4e27-98f5-de4cf324f19f.png)
 
 <br>
 
@@ -112,7 +112,75 @@ This project is about a program that vectorizes strings into Java Path2D.Float p
 This [project](https://github.com/nilostolte/Projects-Presentations/blob/main/BreakIntoLines.md#breakintolines) is about a 
 Java program that vectorizes a string into Java Path2D.Float paths, breaking it into lines and right justifying the text.
 
-# Graphics Designers as GUI Creators: a less expensive and superior way to create GUIs
+## BreakIntoLines in PDFBox: Creating Multipage Formatted Documentation in PDF
+
+The Apache PDFBox library is an open source Java tool for working with PDF documents. The Apache PDFBox
+library project allows viewing PDF documents, creation of new PDF documents, manipulation of existing
+documents and the ability to extract content from documents. Apache PDFBox also includes several
+command-line utilities.
+In this project, PDFBox was added the capability to format text coming from a stream (only a file or a string at
+the moment, but it can be easily extended to other sources). It is a custom stream that is actually implemented
+by a generic interface for reading words from a text source.
+Two classes were created for different purposes: BreakIntoLines and BreakIntoDocLines. The first allows to
+format paragraphs into a PDF page and the other generates an entire PDF formatted file as an electronic book
+with several pages.
+The choice here was to use the standard embedded fonts instead of displaying the glyphs ourselves from a
+custom dictionary. This is done for improved fonts antialiasing when shown on the screen. This is because in
+our system the glyphs are shown with standard antialiasing on the screen but hints embedded in the fonts to
+simplify the display when the scale is very small are not used to save space and to ease implementation.
+The major goal of this project is to supply a way to generate online documentation that is also printable in PDF
+format. The same text can be used to be displayed online or in PDF format with identical format (WYSIWYG).
+
+The example below shows two formatted paragraphs in PDF with different fonts. Two examples are introduced in PDFBox
+to show the features proposed: **ShowJustifiedFormattedText.java** and **ShowJustifiedFormattedBook.java**.
+The first example is the one shown below. PDFBox has several examples that help users to use the various
+features this software offers.
+
+![image](https://user-images.githubusercontent.com/80269251/127378791-43890d2a-2940-41f2-bd6a-aade44a6ac11.png)
+
+Below, an example of book copied from a web site using a Java program to quickly jump to the text and copy
+just the book. The PDF book generated is shown using the PDF Debugger from PDFBox. On the right, the code
+of the first page of the file is shown just opening the “Page: 1” tag and clicking on “Contents”.
+
+![image](https://user-images.githubusercontent.com/80269251/127379206-3f21c948-e03c-4c8b-82a9-367c606465e6.png)
+
+Detail of the PDF code generated. Notice the font switching (/F1, /F2, /F3 and /F4) and the two bytes characters to avoid encoding vector. Characters are indexed directly by their Glyph Index (GID). Compression greatly reduces the space due redundancy. Notice the transformation matrix at the beginning of each line.
+
+![image](https://user-images.githubusercontent.com/80269251/127379359-0704f50b-ddfe-4999-a376-03647d0e7bf8.png)
+
+## Converting  Java Vector to PowerPoint With FreeHEP: MicroVBA
+
+MicroVBA is our VBA interpreter written in VBA to be used in PowerPoint in order to be able to import large vector graphics files.
+
+In this project, the Java vector information shown on the screen, such as a Graphics User interface, is automatically converted to PowerPoint by using an intermediate language, MicroVBA. The information is written in a file containing the MicroVBA instructions that are read within a macro in the PowerPoint file where the vector information is created in our MicroVBA interpreter by executing the instructions. MicroVBA is a subset of VBA for PowerPoint. This language bypasses the weaknesses of the EMF format (the lack of gradient being the most handicapping) and of VBA itself (limitations on the size of functions) in order to import complete vector files from Java programs to PowerPoint.
+
+The program that transforms the Java information to MicroVBA is a modification of FreeHEP library. As mentioned in Part 1, it uses an independent graphics superclass that writes the MicroVBA instructions into a file. The user triggers the conversion by clicking on a bar on the top of the screen. 
+
+A PowerPoint presentation that mocks the converted interface can be found [here](https://github.com/nilostolte/MicroVBA-PowerPoint/blob/main/Example/testfontsembedded.pptm). 
+
+This file is shown below. Clicking an option will make a frame appear. These are Powerpoint frames not part of the original Java menu on the left.
+This presentation is ideal to show how the menu works in Java. It behaves exactly in the same way.
+
+![image](https://user-images.githubusercontent.com/80269251/127379692-5addfecd-86a0-4ad1-b406-e31403d3cd4f.png)
+
+As indicated here, when an element is clicked instead of activating the real activity in the real Java program, this mockup just shows an explanation on what the real Java program does. This is not only good as a didactical tool, but also as a tool for documentation
+
+![image](https://user-images.githubusercontent.com/80269251/127379724-25650fa8-8661-40b9-9a32-161881888709.png)
+
+When an element is clicked it flashes to show this menu  element has been clicked, exactly as it does in the original menu in Java.
+Next, an animation is triggered with a new frame with the explanation.
+
+![image](https://user-images.githubusercontent.com/80269251/127379753-c35779f7-9dbb-4df0-b8e1-d27be9323568.png)
+
+The animation is actually done by a macro that makes the previous frame disappear and the new frame appear. The texts in the menus are copied to the presentation as vector paths, not as text, and they look exactly as in Java.
+
+![image](https://user-images.githubusercontent.com/80269251/127379772-c163c2a1-21b3-4564-ab9c-6604510c60f7.png)
+
+This is how they are represented in the original Java program. They are transferred to the presentation via a MicroVBA file that is generated in the application totally automatically. The interpreter is necessary because the file is large.
+
+![image](https://user-images.githubusercontent.com/80269251/127379797-be235d20-1ef9-4b59-9824-adb7aa5154fd.png)
+
+# Conclusion: Graphics Designers as GUI Creators - a less expensive and superior way to create GUIs
 
 Because of the clutter, the design difficulty and lack of elegance and flexibility of available elements for creating interfaces on **Android**, the need of richer graphics designs for **Java Android** has been first detected. The difficulty perceived was that the design, the colors and art are of an extreme importance for the appearance of a graphics interface element. However, these elements are, in general, designed by programmers and not by artists. Realizing that this has been a huge mistake for decennials and that only now artists start to express themselves in web sites design, it is logical to think to use some of these very modern and evolved resources also in the universe of interfaces for Android applications.
 
