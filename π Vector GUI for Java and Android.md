@@ -160,29 +160,7 @@ In this project, the Java vector information shown on the screen, such as a Grap
 
 The program that transforms the Java information to MicroVBA is a modification of FreeHEP library. As mentioned in Part 1, it uses an independent graphics superclass that writes the MicroVBA instructions into a file. The user triggers the conversion by clicking on a bar on the top of the screen. 
 
-A PowerPoint presentation that mocks the converted interface can be found [here](https://github.com/nilostolte/MicroVBA-PowerPoint/blob/main/Example/testfontsembedded.pptm). 
-
-This file is shown below. Clicking an option will make a frame appear. These are Powerpoint frames not part of the original Java menu on the left.
-This presentation is ideal to show how the menu works in Java. It behaves exactly in the same way.
-
-![image](https://user-images.githubusercontent.com/80269251/127379692-5addfecd-86a0-4ad1-b406-e31403d3cd4f.png)
-
-As indicated here, when an element is clicked instead of activating the real activity in the real Java program, this mockup just shows an explanation on what the real Java program does. This is not only good as a didactical tool, but also as a tool for documentation
-
-![image](https://user-images.githubusercontent.com/80269251/127379724-25650fa8-8661-40b9-9a32-161881888709.png)
-
-When an element is clicked it flashes to show this menu  element has been clicked, exactly as it does in the original menu in Java.
-Next, an animation is triggered with a new frame with the explanation.
-
-![image](https://user-images.githubusercontent.com/80269251/127379753-c35779f7-9dbb-4df0-b8e1-d27be9323568.png)
-
-The animation is actually done by a macro that makes the previous frame disappear and the new frame appear. The texts in the menus are copied to the presentation as vector paths, not as text, and they look exactly as in Java.
-
-![image](https://user-images.githubusercontent.com/80269251/127379772-c163c2a1-21b3-4564-ab9c-6604510c60f7.png)
-
-This is how they are represented in the original Java program. They are transferred to the presentation via a MicroVBA file that is generated in the application totally automatically. The interpreter is necessary because the file is large.
-
-![image](https://user-images.githubusercontent.com/80269251/127379797-be235d20-1ef9-4b59-9824-adb7aa5154fd.png)
+A PowerPoint presentation that mocks the converted interface representing a menu can be found [here](https://github.com/nilostolte/MicroVBA-PowerPoint/blob/main/Example/testfontsembedded.pptm). Clicking an option in the menu will make a frame appear. These are Powerpoint frames not part of the original Java menu on the left. This presentation is ideal to show how the menu works in Java. It behaves exactly in the same way. As indicated there, when an element is clicked instead of activating the real activity in the real Java program, this mockup just shows an explanation on what the real Java program does. This is not only good as a didactical tool, but also as a tool for documentation. When an element is clicked it flashes to show this menu element has been clicked, exactly as it does in the original menu in Java. Next, an animation is triggered with a new frame with the explanation. The animation is actually done by a macro that makes the previous frame disappear and the new frame appear. The texts in the menus are copied to the presentation as vector paths, not as text, and they look exactly as in Java. This is how they are represented in the original Java program. They are transferred to the presentation via a MicroVBA file that is generated in the application totally automatically. The interpreter is necessary because the file is large.
 
 # Conclusion: Graphics Designers as GUI Creators - a less expensive and superior way to create GUIs
 
