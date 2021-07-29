@@ -27,8 +27,9 @@ By looking in more detail the design of interfaces using vector primitives I hav
 
 <br>
 
-![image](https://user-images.githubusercontent.com/80269251/111790751-e9920700-8898-11eb-91a4-ff6ba61c2e52.png)
-
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/80269251/127531622-464d50fa-fc48-4338-98f5-25bd0a068ac2.png">
+</p>
 
 The diagram shows the data flow between each element of the <b>system prototype</b>. Starting from an initial file with the vector information of a drawing in **PostScript**, **PDF**, **Ai** (**Adobe Illustrator** format, which is, in fact, a **PDF** file or a **PostScript** file) or **SVG** which was produced in a software (**Adobe Illustrator**, **Inkscape**, etc.) or written directly in **PostScript**. This file was originally created by an artist (graphic designer) or homemade. In the first case, the examples implemented here were retrieved free of charge from the Internet (mainly from **Freepik**).
 This file is then converted to **PostScript**. If the file was originally designed in **PostScript** it must also sometimes be converted into a **PostScript** file with only pure graphics, that is to say, devoid of any programming element since **PostScript** is also a programming language (moreover this feature is fully exploited in this system). This is achieved by various tools, such as: **Ghostview** (it is the workhorse in this system, which is a free **PostScript** interpreter for **Windows** or **Unix**), **Acrobat Pro** (software from **Adobe**, the creator of **PostScript** and **PDF**, capable of reading **PostScript** and **PDF** files and transforming them from one format to another or into other formats), **Illustrator ** (product of  **Adobe**, very expensive graphics designer professional tool, and inaccessible to non-graphic designer users) and **Inkscape** (free software for generating and converting **SVG** files to other formats). Other tools are possible. These are just few examples.
