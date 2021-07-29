@@ -164,7 +164,7 @@ Detail of the PDF code generated. Notice the font switching (/F1, /F2, /F3 and /
   <img src="https://user-images.githubusercontent.com/80269251/127379359-0704f50b-ddfe-4999-a376-03647d0e7bf8.png">
 </p>
 
-Please check [this link](https://github.com/nilostolte/PDFBox#running-the-pdf-viewer) for a discussion on how to use PDF Debugger, a space analysis between the standard procedure to justify text in PDF in comparison with our method, different problems concerning space savings (particularly by using Td command instead of a transformation matrix), a comparison between different embeddable fonts in PDFBox, as well as a discussion about compression.
+Please check [this link](https://github.com/nilostolte/PDFBox#running-the-pdf-viewer) for a discussion on how to use PDF Debugger, a space analysis between the standard procedure to justify text in PDF and our method, different problems concerning space savings (particularly by using Td command instead of a transformation matrix), a comparison between different embeddable fonts in PDFBox, as well as a discussion about compression.
 
 ## Converting  Java Vector to PowerPoint With FreeHEP: MicroVBA
 
