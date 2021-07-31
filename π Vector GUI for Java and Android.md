@@ -168,7 +168,7 @@ Please check [this link](https://github.com/nilostolte/PDFBox#running-the-pdf-vi
 
 ## Converting  Java Vector to PowerPoint With FreeHEP: MicroVBA
 
-MicroVBA is our VBA interpreter written in VBA to be used in PowerPoint in order to be able to import large vector graphics files.
+[MicroVBA](https://github.com/nilostolte/MicroVBA-PowerPoint) is our VBA interpreter written in VBA to be used in PowerPoint in order to be able to import large vector graphics files.
 
 [In this project](https://github.com/nilostolte/Java2PPT), the Java vector information shown on the screen, such as a Graphics User interface, is automatically converted to PowerPoint by using an intermediate language, MicroVBA. The information is written in a file containing the MicroVBA instructions that are read within a macro in the PowerPoint file where the vector information is created in our MicroVBA interpreter by executing the instructions. MicroVBA is a subset of VBA for PowerPoint. This language bypasses the weaknesses of the EMF format (the lack of gradient being the most handicapping) and of VBA itself (limitations on the size of functions) in order to import complete vector files from Java programs to PowerPoint.
 
