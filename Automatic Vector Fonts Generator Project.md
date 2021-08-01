@@ -58,3 +58,29 @@ This is how the embedded font looks like:
 
 Each glyph of the font is defined as a Path2D.Float path, composed by commands `moveTo`, `lineTo`, `quadTo`, `curveTo`, and `closePath`, with the respective point coordinates. These coordinates are assumed as the glyph was positioned at the origin.
 
+## Modification of Kerning Pairs
+
+In the PostScript prototype the original kerning pairs could be modified by adding additional kerning
+information to the font. This is an advanced feature that was added to the BreakIntoLines function. In normal
+Truetype and Opentype fonts this obviously cannot be done except using specialized software to modify
+fonts. Modification of this information should be accessible and easy to be done. Unfortunately this is not the
+case neither in nowadays fonts, neither in programs that use them.
+
+After the automatic generation of a font class, as it has been previously presented, this class has three
+essential information. One of them is the kerning pairs table. Since this table is declared in Java, the
+information is directly accessible and modifiable. It is declared as `int k[][][]`. The first dimension of k is
+accessed by an index which is the code of the first character subtracted by 32 because all characters prior to
+blank are not visible, thus they don’t need to be kerned. This indexation returns a table that contains the set of
+second characters of the pairs. The second character is searched in this table using a binary search. The
+searched character is in reality another table with two elements, the first containing the character to be
+searched and the second is an integer with the kerning distance. The example below is for the letter ‘I’, forming
+pairs with characters ‘f’, ‘t’, ‘v’, ‘w’, ‘y’ and ‘z’ (inexistent pairs have distance zero):
+
+```Java
+{ { 'I' }, { 'f', 7 }, { 't', 6 }, { 'v', 5 }, { 'w', 5 }, { 'y', 5 }, { 'z', 7 } },
+```
+This two elements table can be modified with any desirable distance that will determine the kerning distance between
+the first character (‘I’ in the example above) and the second. For cases of an inexistent pair the character with
+the corresponding distance must be added in alphabetic order.
+
+
