@@ -1,6 +1,9 @@
 # Projects Presentations
 This repository contains the presentation of projects developed or still in development. The goal of these presentations is to give a deep insight in the projects from a high level perspective without worrying too much with the code. This is mostly to provide information on the tools, technologies involved and the breakthroughs attained.
 
+## Open Letter
+This [letter](https://github.com/nilostolte/Projects-Presentations/blob/main/OpenLetter.pdf) is a foreword to the work I have been doing lately in terms of research and development, which is the use of vector graphics in innovative graphics user interfaces. This work has a tremendous reach in terms of longevity as well as in reduction of costs of graphics user interfaces. The vector graphics paradigm is almost universal and has been available in some languages and it has been recently migrating to hardware in the form of standard APIs
+
 ##  π Vector GUI for Java and Android
 
 This [project](https://github.com/nilostolte/Projects-Presentations/blob/main/%CF%80%20Vector%20GUI%20for%20Java%20and%20Android.md#%CF%80-vector-gui-for-java-and-android) is about the development of a system for creating  Graphics User Interfaces (GUI) for Java applications on Windows, Linux or Android using vector primitives and vectorized fonts.
