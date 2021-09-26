@@ -11,7 +11,7 @@ This [project](https://github.com/nilostolte/Projects-Presentations/blob/main/%C
 ## MicroVBA
 This [project](https://github.com/nilostolte/MicroVBA-PowerPoint) implements a VBA interpreter written in VBA to be used in PowerPoint in order to be able to import large vector graphics files. The advantages are: vectorization of PowerPoint objects (particularly vectorized texts), high level solution to convert from other vector graphics formats, portable way to store vector graphics objects outside PowerPoint, smooth connectivity with VBA programs already inside PowerPoint presentations, simple programmable solution for complex objects construction, no limitations in the size of the files and more pertinent and helpful error messages. It actually does not need full VBA conpatibility, since it can smoothly integrate with VBA programs in the Powerpoint presentation.
 
-## Freehep for Converting Java Graphics2D Vector Information to MicroVBA
+## Java2PPT - Converting Java Graphics2D Vector Information to MicroVBA
 
 In this [project](https://github.com/nilostolte/Java2PPT#java2ppt) the Java vector information shown on the screen, such as a Graphics User interface, is automatically converted to PowerPoint by using an intermediate language, [MicroVBA](https://github.com/nilostolte/MicroVBA-PowerPoint). This program is a modification of [FreeHep](https://github.com/nilostolte/FreeHep#freehep) library. It uses an independent graphics superclass that writes the MicroVBA instructions into a file.
 
