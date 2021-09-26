@@ -13,7 +13,7 @@ This [project](https://github.com/nilostolte/MicroVBA-PowerPoint) implements a V
 
 ## Freehep for Converting Java Graphics2D Vector Information to MicroVBA
 
-This [project](https://github.com/nilostolte/Java2PPT#java2ppt) which is a modification of [FreeHep](https://github.com/nilostolte/FreeHep#freehep), has been designed to generate [MicroVBA](https://github.com/nilostolte/MicroVBA-PowerPoint) code. 
+In this [project](https://github.com/nilostolte/Java2PPT#java2ppt) the Java vector information shown on the screen, such as a Graphics User interface, is automatically converted to PowerPoint by using an intermediate language, [MicroVBA](https://github.com/nilostolte/MicroVBA-PowerPoint). This program is a modification of [FreeHep](https://github.com/nilostolte/FreeHep#freehep) library. It uses an independent graphics superclass that writes the MicroVBA instructions into a file.
 
 ## PDFBox
 This [project](https://github.com/nilostolte/PDFBox) offers several versions of PDFBox source code that can be directly compiled with Eclipse without using Maven. The source code version used here is `pdfbox-2.0.23`. The complete version (PDFBox-Complete) is a complete unmodified PDFBox with all packages. In the [README file]() it is shown how to compile, run the examples, and use the PDF debugger to check PDF files contents. This project will contribute to the project [π Vector GUI for Java and Android](https://github.com/nilostolte/Projects-Presentations/blob/main/%CF%80%20Vector%20GUI%20for%20Java%20and%20Android.md#%CF%80-vector-gui-for-java-and-android). 
