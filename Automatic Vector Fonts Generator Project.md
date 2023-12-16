@@ -11,7 +11,7 @@ the kerning had to be done by hand (the font kerning information is encrypted in
 prototype cannot be used in another context (in a Java program, for example), except for showing static vectorized texts.  A vectorized 
 text is a text represented by their graphical shapes, broadly called glyphs. A glyph is a series of commands to draw a character. Long 
 vectorized texts are not a compact way to represent these texts because it will contain several repetitions of the same glyphs, thus wasting 
-considerable space. It is neither not a convenient way to represent texts in a program, which is mainly done using sequences of character 
+considerable space. It is neither a convenient way to represent texts in a program, which is mainly done using sequences of character 
 codes (ASCII or Unicode, for example), broadly called as strings. In text entered by the user, such as in a copy-paste context, for example, 
 it is not possible to substitute the use of strings with their vectorized form. On the other hand, one cannot use PostScript to show messages 
 in a program since PostScript interpreters are extremely complex and heavy.
